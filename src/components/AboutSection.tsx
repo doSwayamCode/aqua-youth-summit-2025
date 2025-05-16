@@ -88,7 +88,7 @@ const AboutSection = () => {
         </div>
 
         <div className="mt-20 bg-gradient-to-r from-water/10 to-nature/10 rounded-2xl p-8 reveal-animation">
-          <h3 className="text-2xl font-bold mb-4 text-center">Who Should Attend</h3>
+          <h3 className="text-2xl font-bold mb-4 text-center">Who Should Attend?</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-8">
             {[
               "University and college students",

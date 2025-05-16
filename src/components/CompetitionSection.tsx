@@ -151,7 +151,7 @@ const CompetitionSection = () => {
                 
                 <div className="mt-8 text-center">
                   <a href="#register" className="btn-primary inline-block">
-                    Join the Competition
+                    Join the Competition!
                   </a>
                 </div>
               </div>

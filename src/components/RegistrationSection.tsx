@@ -45,8 +45,14 @@ const RegistrationSection = () => {
               <div>
                 <h3 className="text-2xl font-bold text-center mb-6">Registration Details</h3>
                 <div className="bg-blue-50 p-4 rounded-lg text-center mb-6">
-                  <span className="font-bold text-xl">₹500</span>
-                  <span className="text-gray-600 ml-1">per participant</span>
+                  <span className="font-bold text-xl">₹1000</span>
+                  <span className="text-gray-600 ml-1">For Scholars, Practitioners and Academicians</span>
+                  <br />
+                   <span className="font-bold text-xl">₹500</span>
+                  <span className="text-gray-600 ml-1">Students</span>
+                  <br />
+                   <span className="font-bold text-xl">₹250</span>
+                  <span className="text-gray-600 ml-1">To attend online</span>
                 </div>
               </div>
               
@@ -69,13 +75,6 @@ const RegistrationSection = () => {
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-water mr-3" viewBox="0 0 20 20" fill="currentColor">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
-                  <p className="text-gray-700">Lunch and refreshments</p>
-                </div>
-                
-                <div className="flex items-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-water mr-3" viewBox="0 0 20 20" fill="currentColor">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                  </svg>
                   <p className="text-gray-700">Participation certificate</p>
                 </div>
                 
@@ -90,18 +89,18 @@ const RegistrationSection = () => {
               <div className="pt-6 text-center">
                 <Button asChild className="bg-water hover:bg-water-dark text-white w-full py-6 text-lg">
                   <a 
-                    href="https://forms.google.com/xyz" 
+                    href="https://www.dhartiinternational.org/" 
                     target="_blank" 
                     rel="noopener noreferrer"
                   >
-                    Register via Google Form
+                    Register!
                   </a>
                 </Button>
                 <p className="text-sm text-gray-500 mt-4">
                   For any queries, please contact us at:
                   <br />
-                  <a href="mailto:contact@enviroconf2025.org" className="text-water hover:underline">
-                    contact@enviroconf2025.org
+                  <a href="mailto:info@dhartiinternational.org.org" className="text-water hover:underline">
+                    info@dhartiinternational.org
                   </a>
                 </p>
               </div>

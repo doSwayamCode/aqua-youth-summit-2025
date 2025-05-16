@@ -84,10 +84,10 @@ const HighlightsSection = () => {
               <div className="bg-white/80 backdrop-blur-sm rounded-xl shadow-md overflow-hidden">
                 <div className="grid grid-cols-1 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-gray-200">
                   {[
-                    { time: "9:00 AM", title: "Registration & Welcome" },
-                    { time: "10:30 AM", title: "Keynote Speeches" },
-                    { time: "12:30 PM", title: "Interactive Sessions" },
-                    { time: "3:00 PM", title: "Competition & Awards" }
+                    { time: "1:30 PM", title: "Registration & Welcome" },
+                    { time: "2:00 PM", title: "Keynote Speeches" },
+                    { time: "4:30 PM", title: "Interactive Sessions" },
+                    { time: "5.30 PM", title: "Competition & Awards" }
                   ].map((item, index) => (
                     <div key={index} className="p-6 text-center">
                       <p className="font-mono text-water-dark font-bold">{item.time}</p>

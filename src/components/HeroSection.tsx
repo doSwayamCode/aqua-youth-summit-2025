@@ -60,7 +60,7 @@ const HeroSection = () => {
             <span className="hidden sm:block">•</span>
             <div className="flex items-center gap-2">
               <MapPin className="h-5 w-5 text-nature-light" />
-              <span>R & D Park, IIT Delhi</span>
+              <span>R & I Park, IIT Delhi</span>
             </div>
           </div>
           
