@@ -106,9 +106,9 @@ const Navbar = () => {
               {item}
             </a>
           ))}
-          <Button className="bg-purple hover:bg-purple-dark text-white mt-4">
+          {/* <Button className="bg-purple hover:bg-purple-dark text-white mt-4">
             Register Now
-          </Button>
+          </Button> */}
         </div>
       </div>
     </header>
