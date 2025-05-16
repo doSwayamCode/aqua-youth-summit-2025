@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,6 +62,21 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				water: {
+					light: '#33C3F0',
+					DEFAULT: '#0EA5E9',
+					dark: '#0369A1',
+				},
+				nature: {
+					light: '#F2FCE2',
+					DEFAULT: '#4ADE80',
+					dark: '#16A34A',
+				},
+				purple: {
+					light: '#E5DEFF',
+					DEFAULT: '#9b87f5',
+					dark: '#6d57d9',
 				}
 			},
 			borderRadius: {
@@ -84,11 +100,56 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'fade-in': {
+					'0%': {
+						opacity: '0',
+						transform: 'translateY(10px)'
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'translateY(0)'
+					}
+				},
+				'fade-out': {
+					'0%': {
+						opacity: '1',
+						transform: 'translateY(0)'
+					},
+					'100%': {
+						opacity: '0',
+						transform: 'translateY(10px)'
+					}
+				},
+				'flow': {
+					'0%, 100%': { transform: 'translateX(0) translateY(0)' },
+					'50%': { transform: 'translateX(10px) translateY(-5px)' },
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-10px)' },
+				},
+				'wave': {
+					'0%': { transform: 'translateX(0) translateY(0)' },
+					'25%': { transform: 'translateX(5px) translateY(-5px)' },
+					'50%': { transform: 'translateX(10px) translateY(0)' },
+					'75%': { transform: 'translateX(5px) translateY(5px)' },
+					'100%': { transform: 'translateX(0) translateY(0)' },
+				},
+				'ripple': {
+					'0%': { transform: 'scale(0.95)', opacity: '0.7' },
+					'50%': { transform: 'scale(1.05)', opacity: '1' },
+					'100%': { transform: 'scale(0.95)', opacity: '0.7' },
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'fade-in': 'fade-in 0.5s ease-out',
+				'flow': 'flow 15s ease-in-out infinite',
+				'float': 'float 5s ease-in-out infinite',
+				'wave': 'wave 10s ease-in-out infinite',
+				'ripple': 'ripple 8s ease-in-out infinite',
 			}
 		}
 	},
