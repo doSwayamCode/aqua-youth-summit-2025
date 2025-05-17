@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
@@ -20,6 +19,15 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Function to scroll to register section
+  const scrollToRegister = () => {
+    const registerSection = document.getElementById('register');
+    if (registerSection) {
+      registerSection.scrollIntoView({ behavior: 'smooth' });
+      setMobileMenuOpen(false); // Close mobile menu if open
+    }
+  };
 
   return (
     <header
@@ -50,7 +58,7 @@ const Navbar = () => {
         
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-6">
-          {['About', 'Speakers', 'Highlights', 'Competition', 'Register'].map((item) => (
+          {['About', 'Organizers', 'Highlights', 'Competition'].map((item) => (
             <a
               key={item}
               href={`#${item.toLowerCase()}`}
@@ -62,7 +70,10 @@ const Navbar = () => {
               {item}
             </a>
           ))}
-          <Button className="bg-purple hover:bg-purple-dark text-white">
+          <Button 
+            className="bg-purple hover:bg-purple-dark text-white"
+            onClick={scrollToRegister}
+          >
             Register Now
           </Button>
         </nav>
@@ -96,7 +107,7 @@ const Navbar = () => {
         mobileMenuOpen ? "translate-x-0" : "translate-x-full"
       )}>
         <div className="container mx-auto px-4 py-6 flex flex-col gap-6">
-          {['About', 'Speakers', 'Highlights', 'Competition', 'Register'].map((item) => (
+          {['About', 'Organizers', 'Highlights', 'Competition'].map((item) => (
             <a
               key={item}
               href={`#${item.toLowerCase()}`}
@@ -106,9 +117,12 @@ const Navbar = () => {
               {item}
             </a>
           ))}
-          {/* <Button className="bg-purple hover:bg-purple-dark text-white mt-4">
+          <Button 
+            className="bg-purple hover:bg-purple-dark text-white mt-4"
+            onClick={scrollToRegister}
+          >
             Register Now
-          </Button> */}
+          </Button>
         </div>
       </div>
     </header>

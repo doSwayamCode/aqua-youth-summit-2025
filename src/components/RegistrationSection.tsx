@@ -46,13 +46,13 @@ const RegistrationSection = () => {
                 <h3 className="text-2xl font-bold text-center mb-6">Registration Details</h3>
                 <div className="bg-blue-50 p-4 rounded-lg text-center mb-6">
                   <span className="font-bold text-xl">₹1000</span>
-                  <span className="text-gray-600 ml-1">For Scholars, Practitioners and Academicians</span>
+                  <span className="text-gray-600 ml-1">Scholars, Practitioners and Academicians</span>
                   <br />
                    <span className="font-bold text-xl">₹500</span>
-                  <span className="text-gray-600 ml-1">Students</span>
+                  <span className="text-gray-600 ml-1">UG & PG students</span>
                   <br />
-                   <span className="font-bold text-xl">₹250</span>
-                  <span className="text-gray-600 ml-1">To attend online</span>
+                   <span className="font-bold text-xl">₹500</span>
+                  <span className="text-gray-600 ml-1">Online</span>
                 </div>
               </div>
               
@@ -89,7 +89,7 @@ const RegistrationSection = () => {
               <div className="pt-6 text-center">
                 <Button asChild className="bg-water hover:bg-water-dark text-white w-full py-6 text-lg">
                   <a 
-                    href="https://www.dhartiinternational.org/" 
+                    href="https://forms.gle/YcAhEMXiczWqgX737" 
                     target="_blank" 
                     rel="noopener noreferrer"
                   >

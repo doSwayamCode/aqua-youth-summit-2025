@@ -71,7 +71,7 @@ const Footer = () => {
         </div>
         
         <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500 text-sm">
-          <p>© {new Date().getFullYear()} Environmental Day Conference 2025. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Environmental Day Conference 2025. See you there!</p>
         </div>
       </div>
     </footer>
