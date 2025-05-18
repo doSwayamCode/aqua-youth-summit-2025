@@ -1,12 +1,29 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import nishantSir from '@/assets/speakers/nishant.jpg';
 import ansh from '@/assets/speakers/ansh.jpg';
 import prashant from '@/assets/speakers/prashant.jpg';
 import swayam from '@/assets/speakers/swayam.jpg';
+import dharmveer from '@/assets/speakers/dharmveer.jpg';
 import { Phone, Mail } from 'lucide-react';
 
 const SpeakersSection = () => {
+  // State to track if we're on mobile
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    // Check if we're on mobile initially
+    setIsMobile(window.innerWidth < 768);
+
+    // Update on resize
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -39,7 +56,8 @@ const SpeakersSection = () => {
       phone: "+91 98765 43210",
       email: "director@dhartiinternational.org",
       facePosition: "custom",
-      imageStyle: { objectPosition: "73% center" }
+      imageStyle: { objectPosition: "73% center" },
+      mobileImageStyle: { objectPosition: "50% 20%" } // Adjust mobile position to show face
     },
     {
       name: "Prashant Kumar",
@@ -51,6 +69,7 @@ const SpeakersSection = () => {
       phone: "+91 62074 44084",
       email: "prashantkumarprashant07@gmail.com",
       facePosition: "center",
+      mobileImageStyle: { objectPosition: "50% 35%" } // Adjust for mobile
     },
     {
       name: "Ansh Raj",
@@ -62,23 +81,36 @@ const SpeakersSection = () => {
       phone: "+91 91996 60345",
       email: "outreach.dif@gmail.com",
       facePosition: "center",
+      mobileImageStyle: { objectPosition: "50% 30%" } // Adjust for mobile
+    },
+    {
+      name: "Dharmveer Singh Yadav",
+      role: "Organizer",
+      position: "Doctoral Scholar, NIT Bhopal",
+      organization: "DIF India, Madhya Pradesh Coordinator",
+      description: "With a deep commitment to grassroots development and sustainable change, Dharmveer has been instrumental in mobilizing youth and local communities across the state.",
+      image: dharmveer,
+      phone: "+91 94151 34423",
+      email: "dharma22012@gmail.com",
+      facePosition: "center",
+      mobileImageStyle: { objectPosition: "50% 60%" } // Adjust for mobile
     },
      {
       name: "Swayam Gupta",
       role: "Organizer",
       position: "IT Management",
       organization: "Technical Coordinator",
-      description: "It’s also important to highlight the technical brilliance that Swayam brings to the 2025 Environmental Day Conference. As Conference Coordinator, Swayam integrated technology seamlessly to enhance participation, accessibility, and impact. From managing virtual collaboration platforms to designing data-driven tools that track youth-led water initiatives, his tech-savvy approach has modernized how such events are run. Swayam believes that digital innovation is key to accelerating environmental action, and his efforts have empowered young leaders to leverage technology for real-world water conservation solutions. His blend of technical skill and environmental passion makes him an outstanding example of today’s youth driving change through innovation.",
+      description: "As Conference Coordinator, Swayam integrated technology seamlessly to enhance participation, accessibility, and impact.",
       image: swayam,
       phone: "+91 84470 86603",
       email: "swayamgupta999@proton.me",
       facePosition: "center",
+      mobileImageStyle: { objectPosition: "50% 55%" } // Adjust for mobile
     }
-    
   ];
 
   return (
-    <section id="speakers" className="section-padding bg-gray-50">
+    <section id="organizers" className="section-padding bg-gray-50"> {/* Changed id to match navbar */}
       <div className="container mx-auto container-padding">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold mb-4 reveal-animation">
@@ -86,8 +118,7 @@ const SpeakersSection = () => {
           </h2>
           <div className="w-20 h-1 bg-water mx-auto mb-8 reveal-animation"></div>
           <p className="text-gray-600 reveal-animation">
-            Learn from industry experts and thought leaders in the field of environmental 
-            conservation and water management.
+            Meet our dedicated team of environmental experts and event organizers
           </p>
         </div>
 
@@ -99,16 +130,16 @@ const SpeakersSection = () => {
               style={{ transitionDelay: `${index * 200}ms` }}
             >
               <div className="flex flex-col md:flex-row">
-                <div className="md:w-2/5 h-56 md:h-auto relative overflow-hidden">
+                <div className="md:w-2/5 h-64 md:h-auto relative overflow-hidden"> {/* Increased height for mobile */}
                   <img 
                     src={speaker.image} 
                     alt={speaker.name} 
-                    className={`w-full h-full object-cover absolute inset-0 ${
-                      speaker.facePosition === "top" ? "object-top" : 
-                      speaker.facePosition === "bottom" ? "object-bottom" : 
-                      speaker.facePosition === "custom" ? "" : "object-center"
-                    }`}
-                    style={speaker.imageStyle || {}}
+                    className="w-full h-full object-cover absolute inset-0"
+                    style={isMobile ? speaker.mobileImageStyle || {} : 
+                          (speaker.facePosition === "custom" ? speaker.imageStyle || {} : 
+                          speaker.facePosition === "top" ? {objectPosition: "center top"} : 
+                          speaker.facePosition === "bottom" ? {objectPosition: "center bottom"} : 
+                          {objectPosition: "center center"})}
                     loading="lazy"
                     onError={(e) => {
                       e.currentTarget.onerror = null;
@@ -128,7 +159,8 @@ const SpeakersSection = () => {
                           href={`tel:${speaker.phone.replace(/\s+/g, '')}`}
                           className="flex items-center text-xs text-gray-600 hover:text-water transition-colors"
                         >
-                          <Phone size={14} className="mr-2" /> {speaker.phone}
+                          <Phone size={14} className="mr-2 flex-shrink-0" /> 
+                          <span className="truncate">{speaker.phone}</span>
                         </a>
                       )}
                       {speaker.email && (
@@ -136,7 +168,8 @@ const SpeakersSection = () => {
                           href={`mailto:${speaker.email}`}
                           className="flex items-center text-xs text-gray-600 hover:text-water transition-colors"
                         >
-                          <Mail size={14} className="mr-2" /> {speaker.email}
+                          <Mail size={14} className="mr-2 flex-shrink-0" /> 
+                          <span className="truncate">{speaker.email}</span>
                         </a>
                       )}
                     </div>
@@ -152,7 +185,7 @@ const SpeakersSection = () => {
                   
                   <div className="mt-4">
                     <div className="inline-block bg-blue-100 text-water-dark text-xs px-3 py-1 rounded-full font-medium">
-                      Oganizer
+                      Organizer
                     </div>
                   </div>
                 </CardContent>
